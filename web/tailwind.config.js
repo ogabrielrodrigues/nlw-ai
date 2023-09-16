@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -17,6 +17,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        body: "#f9fafb",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -65,12 +66,32 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        scale: {
+          "0%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.1)" },
+        },
+        wand: {
+          "0%": { transform: "translate(0, 0)" },
+          "10%": { transform: "translate(2px, 0)" },
+          "20%": { transform: "translate(0, 2px)" },
+          "30%": { transform: "translate(0, 0)" },
+          "40%": { transform: "translate(-2px, 0)" },
+          "50%": { transform: "translate(0, -2px)" },
+          "60%": { transform: "translate(0, 0)" },
+          "70%": { transform: "translate(-2px, 0)" },
+          "80%": { transform: "translate(0, -2px)" },
+          "90%": { transform: "translate(2, 0)" },
+          "100%": { transform: "translate(0, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        scale: "scale 0.8s ease-in-out infinite",
+        wand: "wand 3s ease-in-out infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
